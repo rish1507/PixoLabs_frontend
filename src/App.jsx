@@ -1,8 +1,8 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import Home from './Pages/Home/Home'
-import MessageInterFace from './Pages/MessageInterFace'
+import Navbar from './components/Navbar/Navbar';
+import Home from './Pages/Home/Home';
+import MessageInterFace from './Pages/Start';
 function App() {
   return (
     <Router>
