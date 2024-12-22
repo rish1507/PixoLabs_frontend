@@ -1,0 +1,75 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* background-color: rgba(36, 36, 36, 0.8); */
+    backdrop-filter: blur(8px);
+  }
+  
+  .navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: 2rem;
+  }
+  
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .icon-link {
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .icon-link svg {
+    color: white;
+  }
+  
+  .docs-link, .login-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .signup-button {
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  /* Hover effects */
+  .nav-links a:hover,
+  .docs-link:hover,
+  .login-link:hover {
+    opacity: 0.8;
+  }
+  
+  .signup-button:hover {
+    background-color: #f0f0f0;
+  }
