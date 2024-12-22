@@ -139,68 +139,6 @@ run_llm_task(
         <div className="code-section">
             {activeSection==="approval"&&<h3>Manage AI Agents Effectively</h3>}
             {activeSection==="approval"&&<img className="messsage-image" src={image}/>}
-          <div className="message-interface">
-            <div className="message-header">
-              <div className="app-icon">
-                <span>P</span>
-              </div>
-              <div className="header-text">
-                <span className="app-name">Pixolabs APP</span>
-                <span className="time">3 minutes ago</span>
-              </div>
-            </div>
-
-            <div className="agent-request">
-              <div className="agent-header">
-                <FaRocket className="rocket-icon" />
-                <span>
-                  Agent AutomateEmail101 would like to request input from you.
-                  Here is the information of the message :
-                </span>
-              </div>
-
-              <div className="message-content">
-                {messageExample.agentMessage}
-              </div>
-              
-            </div>
-            <div className="message-divider">
-              Would you like me to respond with your availablity? 
-            </div>
-            <div className="action-buttons">
-              <button className="action-btn approve">Approve</button>
-              <button className="action-btn decline">Decline</button>
-              <button className="action-btn edit">Edit</button>
-            </div>
-            <div className="message-replies">
-              {messageExample.responses.map((response, index) => (
-                inputClicked || index===0?
-               ( <div key={index} className="response-item">
-                  <div className="response-header">
-                    <div className="app-icon">
-                      <span>{response.author[0]}</span>
-                    </div>
-                    <span className="author">{response.author}</span>
-                    <span className="time">3 minutes ago</span>
-                  </div>
-                  <div className="response-content">{response.message}</div>
-                  {response.showActions &&(
-                    <div className="action-buttons">
-                      <button className="action-btn approve">Approve</button>
-                      <button className="action-btn decline">Decline</button>
-                      <button className="action-btn edit">Edit</button>
-                    </div>
-                  )}
-                  {!response.showActions&&(<div className="message-input">
-                           <input
-                             value={inputValue}
-                            onKeyDown={handleInputClicked}
-                           />
-                  </div>)}
-                </div>):null
-              ))}
-            </div>
-          </div>
           
           <pre>
             <code className="language-python">{codeExample}</code>
