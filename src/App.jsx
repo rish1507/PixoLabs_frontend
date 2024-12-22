@@ -9,7 +9,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Message" element={<MessageInterFace/>}/>
+        <Route path="Message" element={<MessageInterFace/>}/>
       </Routes>
     </Router>
   )
