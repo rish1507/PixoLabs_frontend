@@ -12,7 +12,7 @@ import {
   FaRocket,
 } from "react-icons/fa";
 import "./Home/Home.css"
-function MessageInterFace() {
+function Start() {
   const [activeSection, setActiveSection] = useState("approval");
   const [inputClicked, setInputClicked] = useState(false);
   const [inputValue, setInputValue] = useState(
@@ -114,4 +114,4 @@ function MessageInterFace() {
   );
 }
 
-export default MessageInterFace;
+export default Start;
