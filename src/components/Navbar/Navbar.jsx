@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import './Navbar.css';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const Navbar = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -11,9 +11,10 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+  const location =useLocation();
+  console.log(location.pathname);
   return (
-    <nav className="navbar" style={{display:'none'}}>
+    <nav className="navbar">
       <div className="navbar-left">
         <a href="#" className="logo">Pixolabs</a>
         <div className="nav-links">

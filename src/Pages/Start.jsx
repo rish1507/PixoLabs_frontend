@@ -49,7 +49,7 @@ function Start() {
     ],
   };
   return (
-    <div className="message-interface" style={{marginTop:"20px",marginBotttom:"100px"}}>
+    <div className="message-interface" style={{marginTop:"100px",marginBotttom:"100px"}}>
     <div className="message-header">
       <div className="app-icon">
         <span>P</span>

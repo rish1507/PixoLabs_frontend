@@ -10,9 +10,9 @@ const HeroSection = () => {
           Pixolabs is an API and SDK that enables AI Agents to contact humans
           for feedback, input, and approvals.
         </p>
-        <div className="hero-cta">
+        {/* <div className="hero-cta">
           <button className="get-started-btn">Get Started</button>
-        </div>
+        </div> */}
       </div>
       <div className="hero-video">
         <div className="video-container">
