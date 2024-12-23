@@ -139,7 +139,6 @@ run_llm_task(
         <div className="code-section">
             {activeSection==="approval"&&<h3>Manage AI Agents Effectively</h3>}
             {activeSection==="approval"&&<img className="messsage-image" src={image}/>}
-          
           <pre>
             <code className="language-python">{codeExample}</code>
           </pre>

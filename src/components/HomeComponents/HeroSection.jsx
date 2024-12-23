@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
-
+import demovideo from "../../assets/DemoVideo.mp4";
 const HeroSection = () => {
   return (
     <div id="hero" className="hero-container">
@@ -16,11 +16,18 @@ const HeroSection = () => {
       </div>
       <div className="hero-video">
         <div className="video-container">
-          {/* Replace with your actual video or demo */}
-          <video className="demo-video" autoPlay muted loop playsInline>
-        <source src="/path-to-your-video/video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+          <video
+            className="demo-placeholder"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+          >
+            <source src={demovideo} type="video/mp4" />
+            <source src={demovideo} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
