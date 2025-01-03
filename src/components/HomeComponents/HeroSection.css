@@ -1,10 +1,10 @@
 .hero-container {
-  background-color: #0a0a0a;
   display: flex;
   align-items: flex-start;
-  padding: 2rem 1rem;
+  padding: 2rem 4rem;
+  padding-top: 4rem;
   gap: 4rem;
-  margin-top: 50px;
+  margin-top: 65px;
   text-align: left;
   margin-bottom: 50px;
 }

@@ -6,7 +6,6 @@ const Footer = () => {
       e.preventDefault();
       window.open(PrivacyPolicyPDF, '_blank', 'noopener,noreferrer');
     };
-  
     return (
       <footer className="footer">
         <div className="footer-container">

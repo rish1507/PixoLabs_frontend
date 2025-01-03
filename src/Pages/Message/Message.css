@@ -1,0 +1,268 @@
+/* Main container */
+.app-container {
+  padding-bottom: 80px;
+  margin-top: 20px;
+  font-family: -Bricolage Grotesque, Bricolage Grotesque Fallback;
+  font-style: normal;
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* Email list styles */
+.email-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  margin-top: 40px;
+  background-color: #f9f9f9;
+}
+.gradient-text {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 153, 153, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; */
+  color: black;
+  padding: 10px;
+}
+.email-item {
+  color: black;
+  /* border: 1px solid #e2e8f0; */
+  padding: 16px;
+}
+
+.email-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.email-header {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.email-address {
+  color: #2563eb;
+}
+.email-subject {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.email-summary {
+  color: black;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Generated email styles */
+.generated-email {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.email-content {
+  white-space: pre-wrap;
+  color: #1e293b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.email-id-title,
+.email-subject-title,
+.email-summary-title {
+  font-weight: 600;
+  color: black;
+  width: 70px;
+}
+/* Button styles */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-approve {
+  background: #22c55e;
+  color: black;
+}
+
+.btn-approve:hover {
+  background: #16a34a;
+}
+
+.btn-edit {
+  background: #e3d513;
+}
+
+/* .btn-edit:hover {
+  background: #f8fafc;
+  color: #1e293b;
+} */
+
+.btn-reject {
+  background: #ef4444;
+  color: black;
+}
+
+.btn-reject:hover {
+  background: #dc2626;
+}
+
+/* Bottom bar */
+.bottom-bar {
+  padding: 16px;
+  z-index: 1000;
+}
+.start-reply-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: 800px;
+  padding: 12px 24px;
+  background: #0384fb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s ease;
+}
+
+.start-reply-btn:hover {
+  background: #1d4ed8;
+}
+
+.start-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 40%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  background: #0384fb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.start-chat-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Info alert */
+.info-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: black;
+  font-size: 14px;
+}
+
+.info-alert svg {
+  color: #3b82f6;
+}
+
+/* Original email in AI edit modal */
+.original-email {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0;
+  color: black;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+.feedback-btn {
+  display: flex;
+  justify-content: center;
+  padding: 12px 24px;
+  background: #0384fb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 8px;
+  transition: background 0.2s ease;
+}
+
+.feedback-btn:hover {
+  background: #1d4ed8;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.rating-slider {
+  flex: 1;
+}
+/* Responsive design */
+@media (max-width: 640px) {
+  .app-container {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .email-item {
+    padding: 12px;
+  }
+}

@@ -14,7 +14,7 @@ const Navbar = () => {
   const location =useLocation();
   console.log(location.pathname);
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={{display:location.pathname==='/'?'flex':'none'}}>
       <div className="navbar-left">
         <a href="#" className="logo">Pixolabs</a>
         <div className="nav-links">

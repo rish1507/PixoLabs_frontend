@@ -1,7 +1,21 @@
 import React from "react";
 import "./HeroSection.css";
 import demovideo from "../../assets/DemoVideo.mp4";
+import { useContext } from "react";
+import {GlobalContext} from "../../context/GlobalContext"
+import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
+  const {user}=useContext(GlobalContext);
+  const navigate=useNavigate();
+  const handleClick=()=>{
+        const token=localStorage.getItem('token');
+        if(token){
+            navigate('/Message')
+        }
+        else{
+           navigate('/Login')
+        }
+  }
   return (
     <div id="hero" className="hero-container">
       <div className="hero-content">
@@ -10,9 +24,9 @@ const HeroSection = () => {
           Pixolabs is an API and SDK that enables AI Agents to contact humans
           for feedback, input, and approvals.
         </p>
-        {/* <div className="hero-cta">
-          <button className="get-started-btn">Get Started</button>
-        </div> */}
+        <div className="hero-cta">
+          <button className="get-started-btn" onClick={handleClick}>Get Started</button>
+        </div>
       </div>
       <div className="hero-video">
         <div className="video-container">
