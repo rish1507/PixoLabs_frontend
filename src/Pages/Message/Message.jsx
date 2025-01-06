@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { Snackbar, Alert } from "@mui/material";
 import "./Message.css";
 import {
   GenerateEmailModal,
@@ -31,6 +32,7 @@ const Message = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedEmail, setSelectedEmail] = useState(null);
   const { emailSummary, setEmailSummary, user } = useContext(GlobalContext);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   console.log(user);
   const handleGenerateEmail = async () => {
     setIsLoading(true);
@@ -43,7 +45,6 @@ const Message = () => {
         from: selectedEmail.from.split(" <")[0],
         sender: user.name,
       });
-
       setGeneratedEmail(response.data.content);
       setShowInitialModal(false);
       setIsEmailModalOpen(true)
@@ -79,7 +80,7 @@ const Message = () => {
         subject: `Re: ${selectedEmail.subject}`,
       });
       setGeneratedEmail("");
-      // Optional: Add success notification
+      setShowSuccessAlert(true);
     } catch (error) {
       console.error("Error sending email:", error);
       // Optional: Add error notification
@@ -192,6 +193,26 @@ const Message = () => {
         handleFeedbackSubmit={handleFeedbackSubmit}
         isLoading={isLoading}
       />
+      <Snackbar
+        open={showSuccessAlert}
+        autoHideDuration={3000}
+        onClose={() => setShowSuccessAlert(false)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert 
+          severity="success" 
+          variant="filled"
+          sx={{ 
+            width: '100%',
+            fontSize: '1rem',
+            '& .MuiAlert-icon': {
+              fontSize: '1.5rem'
+            }
+          }}
+        >
+          Email successfully sent!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

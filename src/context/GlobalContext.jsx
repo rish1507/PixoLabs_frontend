@@ -10,7 +10,7 @@ export const GlobalProvider = ({ children }) => {
   useEffect(()=>{
           async function fetchSummary(){
             const summaryResponse = await api.get(
-                `http://localhost:5000/api/emails/summaries`
+                `/emails/summaries`
               );
               setEmailSummary(summaryResponse.data)
           }

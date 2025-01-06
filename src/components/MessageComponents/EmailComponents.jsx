@@ -37,8 +37,8 @@ export const GeneratedEmailContent = ({
   setManualEditText,
   setShowManualEditModal,
 }) => (
-<Dialog 
-    open={open} 
+  <Dialog
+    open={open}
     disableEscapeKeyDown
     disableBackdropClick
     hideBackdrop={false}
@@ -50,8 +50,8 @@ export const GeneratedEmailContent = ({
       <div className="generated-email">
         <div className="email-content">{generatedEmail}</div>
         <div className="action-buttons">
-          <button 
-            className="btn btn-approve" 
+          <button
+            className="btn btn-approve"
             onClick={() => {
               onApprove();
               onClose();
@@ -59,10 +59,11 @@ export const GeneratedEmailContent = ({
           >
             <FontAwesomeIcon icon={faCheck} /> Approve
           </button>
-          <button 
-            className="btn btn-edit" 
+          <button
+            className="btn btn-edit"
             onClick={() => {
               onAIEdit();
+              onClose();
             }}
           >
             <FontAwesomeIcon icon={faRobot} /> Edit with AI
@@ -72,12 +73,13 @@ export const GeneratedEmailContent = ({
             onClick={() => {
               setManualEditText(generatedEmail);
               setShowManualEditModal(true);
+              onClose();
             }}
           >
             <FontAwesomeIcon icon={faPencil} /> Edit Myself
           </button>
-          <button 
-            className="btn btn-reject" 
+          <button
+            className="btn btn-reject"
             onClick={() => {
               onReject();
               onClose();

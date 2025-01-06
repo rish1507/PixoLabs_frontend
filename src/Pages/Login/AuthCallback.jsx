@@ -19,14 +19,14 @@ const AuthCallback = () => {
       }
       try {
         const response = await api.get(
-          `http://localhost:5000/api/auth/gmail/callback?code=${code}`
+          `/auth/gmail/callback?code=${code}`
         );
         const { token } = response.data;
         localStorage.setItem("token", token);
         localStorage.setItem('User', JSON.stringify(response.data.user));
         setUser(response.data.user);
         const summaryResponse = await api.get(
-          `http://localhost:5000/api/emails/summaries`
+          `/emails/summaries`
         );
         setEmailSummary(summaryResponse.data);
         navigate('/Message')

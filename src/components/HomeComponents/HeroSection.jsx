@@ -13,7 +13,7 @@ const HeroSection = () => {
             navigate('/Message')
         }
         else{
-           navigate('/Login')
+           navigate('/Register')
         }
   }
   return (
@@ -26,6 +26,7 @@ const HeroSection = () => {
         </p>
         <div className="hero-cta">
           <button className="get-started-btn" onClick={handleClick}>Get Started</button>
+          <button className="get-started-btn">Join Waitlist</button>
         </div>
       </div>
       <div className="hero-video">
