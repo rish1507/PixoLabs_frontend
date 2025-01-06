@@ -12,7 +12,6 @@ PixoLabs is a modern web application that helps automate email communications an
 - **Feedback System**: Built-in system for rating and providing feedback
 
 ## Technology Stack
-
 - **Frontend Framework**: React.js 18
 - **Build Tool**: Vite
 - **Routing**: React Router Dom v7
@@ -29,7 +28,7 @@ PixoLabs is a modern web application that helps automate email communications an
 
 Before running this project, make sure you have:
 
-- Node.js (Latest LTS version)
+- Node.js (Latest LTS version)--- link for download--https://nodejs.org/en
 - npm (comes with Node.js)
 - A Google Cloud Platform account (for authentication)
 - Git
@@ -57,7 +56,7 @@ Before running this project, make sure you have:
    npm run dev
    ```
 
-## Project Structure
+##  Front end -- Project Structure
 
 ```
 pixolabs/
