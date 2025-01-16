@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import { useState } from 'react';
-import axios from 'axios';
+import api from "../../utils/axios"
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
@@ -18,7 +18,7 @@ const Login = () => {
   const handleCLickonGoogle=async()=>{
     console.log("in googe auth")
     try {
-      const response = await axios.get('/auth/gmail');
+      const response = await api.get('/auth/gmail');
       console.log(response.data.url);
       window.location.href = response.data.url;
   } catch (err) {

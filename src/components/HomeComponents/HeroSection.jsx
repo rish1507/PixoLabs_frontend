@@ -1,4 +1,3 @@
-// HeroSection.jsx
 import React, { useContext, useState } from "react";
 import "./HeroSection.css";
 import demovideo from "../../assets/DemoVideo.mp4";
@@ -10,15 +9,23 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+import api from '../../utils/axios';
 const HeroSection = () => {
   const { user } = useContext(GlobalContext);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: '',
+    severity: 'success'
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     const token = localStorage.getItem('token');
@@ -37,6 +44,10 @@ const HeroSection = () => {
     setOpen(false);
   };
 
+  const handleSnackbarClose = () => {
+    setSnackbar(prev => ({ ...prev, open: false }));
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -45,12 +56,60 @@ const HeroSection = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    // Here you can add the logic to submit the waitlist data
-    console.log('Waitlist submission:', formData);
-    // Reset form and close modal
-    setFormData({ name: '', email: '' });
-    setOpen(false);
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      );
+  };
+
+  const handleSubmit = async () => {
+    // Validate inputs
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setSnackbar({
+        open: true,
+        message: 'Please fill in all fields',
+        severity: 'error'
+      });
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      setSnackbar({
+        open: true,
+        message: 'Please enter a valid email address',
+        severity: 'error'
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await api.post('/waitList/join', {
+        name:formData.name,
+        email:formData.email
+      });
+      if (response.statusText!=="OK") {
+        throw new Error('Failed to submit waitlist form');
+      }
+      setSnackbar({
+        open: true,
+        message: 'Successfully joined the waitlist!',
+        severity: 'success'
+      });
+      setFormData({ name: '', email: '' });
+      setOpen(false);
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: 'Failed to join waitlist. Please try again later.',
+        severity: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -71,6 +130,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="hero-video">
+        <h1>Demo</h1>
         <div className="video-container">
           <video
             className="demo-placeholder"
@@ -116,11 +176,29 @@ const HeroSection = () => {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary" variant="contained">
-            Submit
+          <Button 
+            onClick={handleSubmit} 
+            color="primary" 
+            variant="contained"
+            disabled={loading}
+          >
+            {loading ? 'Submitting...' : 'Submit'}
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Snackbar 
+        open={snackbar.open} 
+        autoHideDuration={6000} 
+        onClose={handleSnackbarClose}
+      >
+        <Alert 
+          onClose={handleSnackbarClose} 
+          severity={snackbar.severity}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

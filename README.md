@@ -37,7 +37,7 @@ Before running this project, make sure you have:
 
 1. Clone the repository:
    ```bash
-   git clone [your-repository-url]
+   git clone-https://github.com/rish1507/PixoLabs_frontend/tree/main
    cd pixolabs
    ```
 
@@ -46,10 +46,10 @@ Before running this project, make sure you have:
    npm install
    ```
 
-3. Create a `.env` file in the root directory with your configuration:
+<!-- 3. Create a `.env` file in the root directory with your configuration:
    ```env
-   VITE_API_URL=your_api_url
-   ```
+   VITE_API_URL=https://pixolabs.onrender.com/api
+   ``` -->
 
 4. Start the development server:
    ```bash

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://pixolabs.onrender.com/api'
+    //  baseURL: 'https://pixolabs.onrender.com/api'
+    baseURL:"http://localhost:5000/api"
 });
 
 // Add token to all requests

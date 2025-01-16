@@ -9,9 +9,10 @@ const AuthCallback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const {emailSummary,setEmailSummary,setUser,user}=useContext(GlobalContext);
+  const {emailSummary,setEmailSummary,setUser,user,slackInitialized,setSlackInitialized}=useContext(GlobalContext);
   useEffect(() => {
     const handleCallback = async () => {
+      console.log("in calllback")
       const code = searchParams.get("code");
       if (!code) {
         setError("No authorization code received");
@@ -21,22 +22,29 @@ const AuthCallback = () => {
         const response = await api.get(
           `/auth/gmail/callback?code=${code}`
         );
+        console.log(response);
         const { token } = response.data;
         localStorage.setItem("token", token);
         localStorage.setItem('User', JSON.stringify(response.data.user));
         setUser(response.data.user);
-        const summaryResponse = await api.get(
+        const summaryAndData = await api.get(
           `/emails/summaries`
         );
-        setEmailSummary(summaryResponse.data);
-        navigate('/Message')
+        setEmailSummary(summaryAndData.data.emailSummaries);
+        console.log(summaryAndData.data.emailSummaries);
+        if(localStorage.getItem('slackToken')){
+          const messageResponse = await api.post("/slack/send-message", {
+            emailsData: summaryAndData.data.emailsData,
+          });
+        }
+       navigate('/Message')
       } catch (err) {
         console.error("Auth error:", err);
         setError("Failed to complete authentication");
       }
     }
     handleCallback();
-  }, [searchParams, navigate]);
+  }, [searchParams,navigate]);
 
   return (
     <div className="callback-container">
@@ -46,3 +54,6 @@ const AuthCallback = () => {
 };
 
 export default AuthCallback;
+
+
+/* */
